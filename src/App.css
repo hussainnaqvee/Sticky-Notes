@@ -1,0 +1,16 @@
+.App {
+    text-align: center;
+      min-height: 100%;
+      margin-top: 40px;
+      padding-bottom: 60px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+}
+
+.notes_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
