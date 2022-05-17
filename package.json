@@ -16,7 +16,7 @@
     "react-scripts": "5.0.1",
     "typescript": "^4.6.4",
     "web-vitals": "^2.1.4",
-    "home-page":"https://hussainnaqvee.github.io/Sticky-Notes"
+    "homepage":"https://hussainnaqvee.github.io/Sticky-Notes"
   },
   "scripts": {
     "predeploy": "npm run build",
