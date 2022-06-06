@@ -12,7 +12,7 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #263238;
+  /* background-color: #263238; */
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
