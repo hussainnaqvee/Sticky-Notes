@@ -40,17 +40,17 @@ const Note: FC<Props> = ({ note, onNoteUpdate, onNoteDelete }) => {
         className={isFocus ? "note_text note_text_focus" : "note_text"}
         contentEditable={true}
         suppressContentEditableWarning={true}
-        onFocus={() => setIsFocus(true)}
+        // onFocus={() => setIsFocus(true)}
         onBlur={onTextBlur}
         onKeyDown={(e) => {
-          console.log(e.key === "Escape" ? setIsFocus(false) : null);
+          e.key === "Escape" ? setIsFocus(false) : setIsFocus(true);
         }}
       >
         {note.text}
       </div>
-      <div className="note_link">
+      {/* <div className="note_link">
         <a href={note.link}>{note.link}</a>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -32,17 +32,12 @@ export  const deleteNote = async (id:string) => {
     }
 };
 
-export const updateNote = async (id: string, note: INote) => { 
+export const updateNote = async (note: INote) => { 
     try {
-        const response = await axios.put(`${API_URL_NOTES}/${id}`, note);
+        const response = await axios.put(`${API_URL_NOTES}/${note._id}`, note);
+        return response.data.Note;
     }
     catch (error) {
         console.log(error)
     }
     };
-
-// module.exports = {
-//     getNotes,
-//     addNote,
-//     deleteNote
-// }

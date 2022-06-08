@@ -4,7 +4,12 @@ import axios from "axios";
 import dummyNotes from "./interfaces/dummyNotes";
 import Note from "./components/Note";
 import INote from "./interfaces/note.interface";
-import { getNotes, deleteNote, createNote } from "./services/noteservice";
+import {
+  getNotes,
+  deleteNote,
+  createNote,
+  updateNote,
+} from "./services/noteservice";
 import { Button, FloatingLabel, Form, Modal } from "react-bootstrap";
 function App() {
   const [notesList, setNotesList] = useState<Array<INote>>([]);
@@ -66,12 +71,10 @@ function App() {
     console.log("After Delete", notesList);
   };
 
-  const onNoteUpdate = (updatedNote: INote) => {
-    console.log("Updated Text");
-    console.log(notesList);
-    console.log(updatedNote);
+  const onNoteUpdate = async (updatedNote: INote) => {
+    const newNote = await updateNote(updatedNote);
     const updatedNotesList = notesList.map((note) => {
-      if (note._id === updatedNote._id) {
+      if (note._id === newNote._id) {
         return updatedNote;
       }
       return note;
@@ -80,17 +83,8 @@ function App() {
   };
   return (
     <div className={darkMode ? "App dark-mode" : "App"}>
-      <Button
-        style={{
-          width: "80px",
-          height: "40",
-          display: "flex",
-          justifyContent: "center",
-        }}
-        variant="outline-warning"
-        onClick={openAddModal}
-      >
-        Add Note ⌨️
+      <Button variant="dark" className="add-button" onClick={openAddModal}>
+        📝
       </Button>
       <Modal show={isAddModal} onHide={closeAddModal}>
         <Modal.Header closeButton>
